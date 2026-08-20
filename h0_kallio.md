@@ -48,7 +48,7 @@ Lopullinen suoritus näyttää kaikessa yksinkertaisuudessaan tältä.
 <img width="495" height="116" alt="Näyttökuva 2026-08-20 145208" src="https://github.com/user-attachments/assets/385d6a7b-1630-4000-b75b-7859ccf0daa6" />  
 
 
-#Lähteet
+# Lähteet
 1) https://www.geeksforgeeks.org/c/compiling-a-c-program-behind-the-scenes/ (Luettu 20.8.2026)
 
 
