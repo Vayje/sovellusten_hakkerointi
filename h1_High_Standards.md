@@ -13,6 +13,7 @@
 ## Johdanto  
 
 Tehtävänantona on kuvata oma työympäristö mahdollisimman tarkasti, jopa niin että se olisi auditoitavissa.  
+Aijon tässä raportissa avata työympäristöäni enemmän esseemäisesti, kuvaten mahdollisimman tarkasti käyttämiäni resursseja.
 Oma työympäristöni tässä vaiheeessa on oma kotiosoitteeni ja siihen sisältyvät (ja poisluettavat) laitteet, joita avaan syvemmin raportin edetessä.  
 Pääasiassa raportissa käytän lähteenä löyhästi ISO27001 standardia vuodelta 2023. Löyhällä tarkoitan sitä, että en aijo sanasta sanaan kopioida koko auditointipohjaa, vaan enemmänkin käytän sitä apuna oman raporttini rakenteen laatimiseen.  
 ISO27001 standardin tukena raportissa toimii Lari Iso-Mattilan luomat ohjeet tehtävästä (terokarvinen.com/application-hacking, h1 High Standards), 
@@ -54,19 +55,24 @@ Käytössäni on SSH yhteys omaan githubiini, jolla joskus tallentelen Gitin kau
 
 ## Topologia 
 
-
-## Interested parties  
-
-
-## Jatkuvuus & yksityisyys  
+<img width="935" height="772" alt="image" src="https://github.com/user-attachments/assets/cfff5cac-6c18-4853-a55e-feee2e88f6ba" />  
 
 
+## Sidosryhmät  
 
+Kaksi tärkeintä sidosryhmää työmpäristössäni on minä itse, sekä oppilaitos ja sen tarjoamat kurssimateriaalit, ohjeet ja kotisivut. 
+Molemmat sidosryhmistä ovat välttämättömiä, sekä molemminpuolista luottamusta vaaditaan.
 
+Minä itse ympäristön "johtajana" pidän huolen, että kaikki kurssiin liittyvä materiaali on eheä ja aina saatavilla kun sitä tarvitaan. 
+Tämän toteutan tallentamalla materiaalit fyysisesti omalle laitteelleni, ja sen lisäksi myös koulun tarjoamaan OneDrive palveluun, josta löydän aina kopiot tarvittaessa. 
+Ykistyisyydestä pidän huolen sulkemalla kaiken turvallisten salasanojen taakse, enkä jätä laitteitani auki.  Skannaan myös aktiivisesti virukset, sekä pidän laitteet ja tietoturvan päivitettyinä.  
 
-
+Johtajana pidän huolen myös omalla kohdallani siitä, ettei kurssimateriaaleja päädy vääriin käsiin. Ohjeita noudatetaan vakavasti ja lain puitteissa etenkin kun on kyse hakkeroinnista.
+Akateemisesta rehellisyydestä on pidettävä huoli merkitsemällä lähteet, ja mainitsemalla tekoälyn käytöstä jos siihen päädytään.  Kaikki teksti ja harjoitukset on omaa, eikä plagiointia sallita. 
+Opittuja asioita käytetään vain silloin, kun siihen annetaan lupa, eikä sitä saa vapaasti soveltaa verkossa tehden haittaa.  
 
 
 ## Lähteet  
 1. https://terokarvinen.com/application-hacking/#homework-tasks, H1 High Standards. (Luettu 21.8.2026)
 2. ISO27001-2023 Standardi. (Luettu 21.8.2026)
+3. Topologia luotu figmalla. Figma.com
