@@ -34,12 +34,13 @@ Kurssin aikana käytän pääosin moodlesta sekä Tero Karvisen kotisivuilta lö
 
 ## Poisrajaukset, riskien kartoitus & hyväksyntä
 
-Kotoani löytyy myös muita laitteita, jotka tarkoituksella poissuljen tästä kartoituksesta. Tässä ytimekäs lista, sekä poisrajauksen syyt:  
-Kotitietokoneeni. Vaikkakin päivittäisessä käytössä, ei kuitenkaan ikinä ole laite jolla suoritan raporteissa nähtyjä kokeiluja.  
-Kumppanin puhelin. Ei millään tavalla relevantti omiin projekteihini, sekä on kytkettynä omaan Elisan tarjoamaan mobiiliverkkoonsa. 
-Kumppanin kannettava tietokone. Ei ole relevantti (on myöskin macbook, hyi) ja on kytkettynä eri verkkoon.
-Äly tv (LG). Vaikka on kytkettynä samaan langattomaan verkkoon, en koe riskitekijäksi sillä siihen ei kytketä USB-laitteita taikka ladata verkosta mitään.
-Muut IoT laitteet. Taloudesta löytyy vielä joitain konsoleita (ps4, Nintendo switch) sekä langattomia kaijuttimia ja kuulokkeita. Nämä ei ole yhteydessä samaan käyttämääni verkkoon, ja harvoin ovat edes käytössä.  
+Kotoani löytyy myös muita laitteita, jotka tarkoituksella poissuljen tästä kartoituksesta.  
+Tässä ytimekäs lista, sekä poisrajauksen syyt:  
+- Kotitietokoneeni. Vaikkakin päivittäisessä käytössä, ei kuitenkaan ikinä ole laite jolla suoritan raporteissa nähtyjä kokeiluja.  
+- Kumppanin puhelin. Ei millään tavalla relevantti omiin projekteihini, sekä on kytkettynä omaan Elisan tarjoamaan mobiiliverkkoonsa. 
+- Kumppanin kannettava tietokone. Ei ole relevantti (on myöskin macbook, hyi) ja on kytkettynä eri verkkoon.
+- Äly tv (LG). Vaikka on kytkettynä samaan langattomaan verkkoon, en koe riskitekijäksi sillä siihen ei kytketä USB-laitteita taikka ladata verkosta mitään.
+- Muut IoT laitteet. Taloudesta löytyy vielä joitain konsoleita (ps4, Nintendo switch) sekä langattomia kaijuttimia ja kuulokkeita. Nämä ei ole yhteydessä samaan käyttämääni verkkoon, ja harvoin ovat edes käytössä.  
 
 Riskejä tällaisista useamman laitteen talouksista löytyy aina. Suurin mielestäni on kahden henkilön omistajuus, sekä eritasoinen tietoisuus verkkoturvallisuudesta.  
 Neljä eri verkkoyhteyttä kolmen eri verkkopalvelun tarjoajan kautta antaa myös luonnollisesti enemmän hyökkäyspintaa.  
