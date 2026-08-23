@@ -71,6 +71,10 @@ Johtajana pidän huolen myös omalla kohdallani siitä, ettei kurssimateriaaleja
 Akateemisesta rehellisyydestä on pidettävä huoli merkitsemällä lähteet, ja mainitsemalla tekoälyn käytöstä jos siihen päädytään.  Kaikki teksti ja harjoitukset on omaa, eikä plagiointia sallita. 
 Opittuja asioita käytetään vain silloin, kun siihen annetaan lupa, eikä sitä saa vapaasti soveltaa verkossa tehden haittaa.  
 
+|  Sidosryhmä  |      Tarve        |         ISO Referenssi        |                  Todiste          |
+--------------------------------------------------------------
+| Minä/Johtaja | Vaadittu, ehdoton | 5.33 Tallenteiden suojaaminen | Kaikista materiaaleista on kopiot |
+|   Kumppani   |    Väistämätön    |      6.7 Etätyöskentely       |  Kunnioitus työympäristöä kohtaan |
 
 ## Lähteet  
 1. https://terokarvinen.com/application-hacking/#homework-tasks, H1 High Standards. (Luettu 21.8.2026)
