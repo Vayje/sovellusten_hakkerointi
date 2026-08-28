@@ -77,12 +77,17 @@ Tekoäly pyysi kiinnittämään huomiota funktioon "mAsdf3a" joka löytyy mainis
 Tekoäly bongasi hajotuksesta kohdat "rdi" ja "rsi", joihin merkkijonoja tallennetaan. Syöttämällä salasanan pyyntökohdassa tekaistun "testi123" salasanan, tallentuu se jompaan kumpaan noista. Komennolla "x/s $rdi" ja vastaava rsi:lle, saamme printtinä kaksi merkkijonoa joista toinen on antamamme salasana ja toinen on tehtävän oikea salasana, ainakin melkein.  
 
 <img width="370" height="182" alt="image" src="https://github.com/user-attachments/assets/fbc2cb51-923a-4b43-88e2-a49638ebad73" />  
+<img width="606" height="169" alt="image" src="https://github.com/user-attachments/assets/3c92b8c0-7474-4688-9c4d-ce4c001c7beb" />  
 
 Edelleen olen täysin hukassa tämän tulkitsemisen kanssa, enkä tajunnut muutakuin kaksi kutsuvaa funktiota riveilä +10 sekä +21. Näiden tulkitsemiseen käytin tekoälyä, joka sanoi että funktiolle annetaan kaksi merkkijonoa jota vertaillaan. Tämän jälkeen tulee rivit +34 sekä +37 joissa on cmp ja jne, jotka antavat epäonnistumisen jos merkkijonojen pituudet eivät ole samat. 
 
 Sen jälkeen siirrytään riveille +45 sekä +50, joissa on "movsbl". Nämä hakevat merkit merkkijonoista. Tekoäly tiesi myös kertoa, että koodissa on merkkijonoa käsittelevä kohta "rax", joka lisää merkin arvoa +3, jos se on parillinen, ja laskee merkin arvoa -7, jos se on pariton.  Tämän jälkeen alunperin löytämämme "oikea" salasana muunnetaan ja salasanaksi tulee "dgOMm-x1".  
 
 <img width="879" height="344" alt="image" src="https://github.com/user-attachments/assets/f1ca4571-2624-4055-928f-a72193493435" />  
+
+Debuggerista opin hieman lisää disassemblen jälkeisestä tulkinnasta ilman lähdekoodia. Tätä auttoi hieman tunnilla näytetty disassemblen purku, mutta tehtävä vaati huomattavasti syvempää analyysia. En ole varma, olisiko syvempi tietämys C kielestä ollut eduksi tässä, mutta ilman tekoälyä en olisi tästä tehtävästä selvinnyt mitenkään päin. Tehtävä tuntui huomattavasti haastavemmalta aikaisempiin verrattuna, ja hyppy viimetehtävästä oli mielestäni liian suuri. Ei se mitään, haasteet on kivoja vaikka hieman turhautti.  
+
+# Lab 3
 
 
 
