@@ -17,6 +17,7 @@ Hexdump ei paljasta meille varsinaisesti mitään.
 <img width="842" height="226" alt="image" src="https://github.com/user-attachments/assets/bfd13c1e-26d9-4bc3-a22e-feea470c515a" />  
 
 <img width="946" height="710" alt="image" src="https://github.com/user-attachments/assets/d05e5bbf-04e1-4a5a-9ca1-35d423f18b96" />  
+
 ---  
 
 
@@ -44,7 +45,7 @@ Ajoin ensin komennon >./extract_keys.sh Tapo_C200v4_en_1.4.2.bin<. Tämän jälk
 
 Ongelmaan ei löytynyt ratkaisua koko ryhmässä, joten opettaja antoi valmiiksi käännetyn tiedoston jonka jälkeen pääsin purkamaan Tapon firmwaren.
 Nyt voin lähteä etsimään root salasanaa. 
->binwalk -e Tapo_C200v4_en_1.4.2.bin.dec< komento loi meille uuden kansion josta löydämme kameran tiedostojärjestelmän.
+"binwalk -e Tapo_C200v4_en_1.4.2.bin.dec" komento loi meille uuden kansion josta löydämme kameran tiedostojärjestelmän.
 
 <img width="924" height="716" alt="Näyttökuva 2026-09-10 163009" src="https://github.com/user-attachments/assets/e3411653-9b7f-422f-b43d-9c9726a37c16" />  
 
