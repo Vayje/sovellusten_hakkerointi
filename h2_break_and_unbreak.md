@@ -41,7 +41,90 @@ Koska artikkeli on vuodelta 2006, lisäisin mokiin ainakin tekoälyn generoimat 
 
 ---  
 
-## a) Break into 010-staff-only  
+## a+b) Break into 010-staff-only  
+
+Tehtävän tarkoituksena on paljastaa tehtävämateriaalista salasana, joka sisältää stringin "SUPERADMIN". 
+Tehtävää varten lataan materiaalin Teron sivuilta, ja alustana minulla on virtuaaliympäristössä toimiva Debian käyttöjärjestelmä. 
+Tehtävän ohjeet löytyy Teron sivuilta jonka linkitän tähän lähteeksi, joten en aijo dokumentoida "tuplana" tehtävämateriaalien latausvaiheita. 
+
+Tältä sivulta olisi tarkoitus löytää admin käyttäjän salasana käyttäen pelkkää web interfacea, ja sen jälkeen korjata haavoittuvuus lähdekoodissa.    
+
+<img width="956" height="801" alt="Näyttökuva 2026-09-18 144511" src="https://github.com/user-attachments/assets/e30d2c06-2abd-4792-9367-7417a6e45c5a" />  
+
+---  
+Lähdin tehtävään kokeilemalla yksinkertaista heittomerkkiä (') PIN kenttään, jos se olisi rikkonut jotain. Kenttä antoi vain varoituksen "Please enter a number". Saman varoituksen sain, kun kokeilin syöttää erilaisia syntakseja tekstistä 123'OR 1=1'. 
+Tämän jälkeen siirryin selaimen debuggeriin, jossa huomasin syöttökentän vaadittuna parametrina "numberin", kokeilin vaihtaa tämän tekstimuotoon.  
+
+<img width="955" height="952" alt="Näyttökuva 2026-09-18 145824" src="https://github.com/user-attachments/assets/c81650be-813a-4586-9c1f-666aa1947eed" />  
+
+Tämä ei kuitenkaan vienyt meitä eteenpäin, joten siirrytään uuteen lähestymistapaan. 
+Debuggerissa avasin network osion, josta löysin yhden POST pyynnön, klikkasin sitä oikealla ja valitsin "Edit and Resend". 
+Tämän jälkeen vasemmassa alakulmassa on kenttä jossa lukee "pin=123", lisäsin sen perään heittomerkin "'", ja sendasin. Saimme network osioon uuden POST pyynnön. Uusi POST pyyntö 500 oli server error, mikä on oikeastaan hyvä merkki. Se tarkoittaa, että lisäämällä syöttökenttään heittomerkin saamme kaadettua serverin. Nyt oikeisiin töihin.  
+
+Muokkasin uusiksi vasemassa alakulmassa nähtyä kenttää, ja muutin tekstiä seuraavasti "pin=123'OR 1=1--", tämä antoi meille uuden POST 200 pyynnön. Sen avattuamme voimmme surffata oikeassa reunassa sijaitsevaan Response ikkunaan jossa meitä odottaa uusi salasana "foo".  
+
+<img width="1919" height="419" alt="kuva" src="https://github.com/user-attachments/assets/0c5418e0-4242-4922-8082-c85012aaa0df" />  
+
+---  
+
+Seuraavaksi tarkoituksenamme olisi korjata tämä haavoittuvuus lähdekoodista. Saatavillamme on opettajan antama python tiedosto, index.html sekä joitain css tiedostoja. Python skripti näyttää tällä hetkellä tältä, ja hakemisto on seuraavanlainen. Emme tee HTML tai css tiedostoilla mitään, joten siirrytään pythonin pariin.   
+
+<img width="1034" height="886" alt="kuva" src="https://github.com/user-attachments/assets/fb10e0e1-99d0-4099-a767-2614a47cf0fc" />  
+
+<img width="731" height="314" alt="kuva" src="https://github.com/user-attachments/assets/da314195-1e43-4286-a537-aaebe72497e6" />  
+
+Koska SQL syntaksi on minulle vielä täysin uutta enkä tajunnut mistä haavoittuvuus johtui, turvauduin korjaamaan koodin pätkää tekoälyn (clauden) avulla. Virhe sijaitsee tässä lohkossa: 
+>sql = "SELECT password FROM pins WHERE pin='"+pin+"';"
+        row = ""
+        with app.app_context():
+                res=db.session.execute(text(sql))
+                db.session.commit()
+                row = res.fetchone()<
+
+Korjaus tapahtuu niin, että erotamme tuon ensimmäisen rivin kahteen eri koodiriviin, jolloin tietokanta saa erikseen kyselyn sekä syöttökentän arvon. Tällöin tietokanta ei mene rikki, vaan se osaa lukea arvon sellaisena kun se on, eikä antamaamme 'OR 1=1-- salasanaa löydy tietokannasta. Tässä korjattu koodi sekä testaus toimivuudesta.  
+
+<img width="634" height="159" alt="kuva" src="https://github.com/user-attachments/assets/80188864-d9bb-4d15-b75c-4bb4983008be" />  
+
+<img width="1918" height="880" alt="kuva" src="https://github.com/user-attachments/assets/e3a83e82-0551-4291-9f8d-991f1648887e" />  
+
+## c) Solve dirfuzt-1  
+
+Tehtävän tarkoituksena on selvittää "dirfuzt-1" binääristä admin page sekä version control related page. 
+Aloitin tehtävän lisäämällä dirfuztiin ajo-oikeudet komennolla "chmod +x dirfuzt-1". 
+Ajettua dirfuztin saimme ip-osoitteen joka vei seuraavanlaiselle sivulle.  
+
+<img width="606" height="263" alt="kuva" src="https://github.com/user-attachments/assets/9fb720fa-b051-455a-a38d-cc5b754c083d" />  
+
+Lisäämällä osoitteen perään /admin, emme saaneet mitään uutta irti. Kannatti kuitenkin yrittää. 
+Lähdin kokeilemaan fuzzausta ffufilla ja common.txt sanalistan avulla. Käytin komentoa "ffuf -w ~/common.txt -u http://127.0.0.2:800/FUZZ. Komento kokeilee common.txt listan sanoja tässä osoitteen perään, jossa nyt lukee FUZZ. 
+Tuloksia on todella paljon, seuraavaksi filtteröidään 154 kokoiset tulokset pois jos löytäisimmekin jotain poikkeavaa. Tämä tapahtuu lisäämällä komennon perään "-fs 154".  
+
+<img width="960" height="625" alt="kuva" src="https://github.com/user-attachments/assets/d5d2f84f-716d-4b08-808d-bc7be24f310a" />  
+
+<img width="929" height="631" alt="kuva" src="https://github.com/user-attachments/assets/57dbd855-cfae-4123-8e90-828f74fb304e" />  
+
+Nyt vain kokeilemaan löydettyjä ip päätteitä selaimeen. /.git/logs/ löysi "versionhallinta" sivun, ja /wp-admin vei "admin" sivulle.  
+
+<img width="548" height="352" alt="kuva" src="https://github.com/user-attachments/assets/f2ceb028-6cb2-40ee-9adf-cb6af785f884" />  
+
+<img width="493" height="308" alt="kuva" src="https://github.com/user-attachments/assets/3c7992e6-7dee-4644-bbe6-740f6a1dc421" />  
+
+## d & e) Break into & fix 020-your-eyes-only
+
+Tehtävän tarkoituksena on murtautua Teron luomaan 020 harjoitukseen ja korjata haavoittuvuus. 
+Tehtävää varten kansiossa on README.txt tiedosto joka sisältää ohjeet vaadittavien pakettien asennukseen, en aijo niitä sen tarkemmin dokumentoida tähän sillä en koe niiden osoittavan teknistä osaamistani. 
+Saatuani paketit asennettua saimme tehtävän etusivun auki, sisällä ollaan.  
+
+<img width="827" height="612" alt="kuva" src="https://github.com/user-attachments/assets/d7f201e9-dadb-4991-b646-d0fb5a71639f" />  
+
+Kun painamme "Show my personal data" nappia, saamme esiin kirjautumissivun joka vaatii käyttäjätunnusta ja salasanaa. Kumpaakaan meillä ei vielä ole. Samat kentät saamme painamalla "admin dashboard" nappia. Siirtymällä kirjautumissivuille, osoite muuttuu seuraavasti: 
+Show my personal data = http://127.0.0.1:8000/accounts/login/?next=/my-data/
+Admin dashboard = http://127.0.0.1:8000/accounts/login/?next=/admin-dashboard/
+Login = http://127.0.0.1:8000/accounts/login/
+Register = http://127.0.0.1:8000/accounts/register/. 
+
+Koska django on minulle täysin tuntematon pohja, kysyin apua tekoälyltä (claude) joka opasti minua luomaan käyttäjän komennolla "./manage.py createsuperuser". 
+
 
 
 
@@ -53,4 +136,4 @@ Koska artikkeli on vuodelta 2006, lisäisin mokiin ainakin tekoälyn generoimat 
 2. https://terokarvinen.com/2023/fuzz-urls-find-hidden-directories/ (Luettu 18.9.2026), x) Lue ja tiivistä
 3. https://portswigger.net/web-security/access-control (Luettu 18.9.2026), x) Lue ja tiivistä
 4. https://terokarvinen.com/2006/raportin-kirjoittaminen-4/ (Luettu 18.9.2026), x) Lue ja tiivistä
-5. https://terokarvinen.com/hack-n-fix/ (Luettu 18.9.2026), a) Break into 010-staff-only
+5. https://terokarvinen.com/hack-n-fix/ (Luettu 18.9.2026), a+b) Break into 010-staff-only
