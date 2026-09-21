@@ -33,9 +33,7 @@ Haavoittuvuuksia on ainakin periaatteen tasolla "helppo" tehostaa.
 
 > Deny by defaultista vankasti kiinnipitäminen ja kirjautumisvirheiden logaus ja
 > ilmoitus tapauskohtaisesti kuulostavat ainakin omaan korvaan todella
-> kustannustehokkailta ratkaisuilta.
-
-Artikkelissa on myös muutama käytännön esimerkki perinteisistä SQL injektoista.
+> kustannustehokkailta ratkaisuilta.  
 
 ---
 
@@ -81,10 +79,7 @@ Siksi virhemarginaali on korkeampi.
 | **Konteksiriippuvainen** | sovelluksen statuksen perusteella |
 
 Konteksiriippuvaisella tarkoitetaan sitä, että esimerkiksi käyttäjä ei voi muokata ostoskoria enää sen jälkeen,
-kun verkkokaupassa on ostotapahtuma jo suoritettu.
-
-Artikkelissa pureudutaan hieman tarkemmin SQL injektio haavoittuvuuksiin,
-ja kuinka paljon eri mahdollisuuksia sillä oikeasti on.
+kun verkkokaupassa on ostotapahtuma jo suoritettu.  
 
 ---
 
