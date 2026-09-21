@@ -123,12 +123,26 @@ Admin dashboard = http://127.0.0.1:8000/accounts/login/?next=/admin-dashboard/
 Login = http://127.0.0.1:8000/accounts/login/
 Register = http://127.0.0.1:8000/accounts/register/. 
 
-Koska django on minulle täysin tuntematon pohja, kysyin apua tekoälyltä (claude) joka opasti minua luomaan käyttäjän komennolla "./manage.py createsuperuser". 
+Luodaan ensiksi käyttäjätunnus register näppäimestä ja siirrytään my personal data välilehdelle.  
 
+<img width="952" height="997" alt="kuva" src="https://github.com/user-attachments/assets/e4cc8754-db01-43fe-95f5-4154a267e4fc" />  
 
+Menemällä oman datan sivuilleni ja muokkaamalla osoitekenttää näin "http://127.0.0.1:8000/my-data/1/" saamme hieman erilaisen Page not found sivun joka saattaa paljastaa meille lisää vihjeitä.  
 
+<img width="958" height="417" alt="kuva" src="https://github.com/user-attachments/assets/d6e5d617-95e0-475e-817c-bd270a5a4222" />  
 
+Muokkaamalla taas osoitekenttää niin, että loppuun tulee /admin-console/ pääsemme salattuun sivuun ilman minkäänlaista käyttäjän oikeuksian tarkastusta.  
 
+<img width="658" height="393" alt="kuva" src="https://github.com/user-attachments/assets/d2f277ab-26a9-4e92-9d5b-986dd8d4401c" />  
+
+Seuraavaksi olisi tarkoitus korjata tämä pääsynhallinnan haavoittuvuus lähdekoodista. Koska djangon rakenne on minulle täysin tuntematon, luin Teron antamista vinkeistä että pääsynhallinnan oikeuksia jaetaan views.py tiedostossa joten avasin sen nanolla.  
+<img width="939" height="596" alt="kuva" src="https://github.com/user-attachments/assets/6bd857df-fe98-4591-b843-b11fd36f3fbc" />  
+
+Kun vertaillaan kahta adminview kohtaa, huomataan että alemmasta puuttuu toinen käyttäjäntarkistus kokonaan. Lisätään "AdminShowAllView" classin returnin perään "and self.request.user.is_staff". Tallennettua muutokset toistin aikaisemmat vaiheet uudestaan, ja nyt lisättyäni osoitekenttään /admin-console/ saamme seuraavan näkymän.  
+
+<img width="558" height="254" alt="kuva" src="https://github.com/user-attachments/assets/6f8b35ed-3e30-4092-a4cd-11277254d3b9" />  
+
+Tehtävä suoritettu onnistuneesti! Tämän olisi varmasti voinut suorittaa myös eritavalla, sillä ratkaisussani en edes käyttänyt ffuffia vaikka Teron ohjeistuksen mukaaan siitä olisi ollut apua. 
 
 --- 
 ## Lähteet
