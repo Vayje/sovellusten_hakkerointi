@@ -47,7 +47,7 @@ Käydään koodin toiminta pala palalta läpi.
 
 Seuraavaksi käänsin lähdekoodin ajettavaan muotoon komennolla "gcc uusipasstr.c". 
 Ajaessa ohjelma kysyy salasanaa. Siihen syötetään "sala-hakkeri-321" niinkuin aiemminkin, ja saadaan onnistunut tulos.
-"Strings uusipasstgr.c" komennolla voidaan tarkastella miltä salasana nyt näyttää edes hieman paremmin suojattuna. 
+"Strings a.out" komennolla voidaan tarkastella miltä salasana nyt näyttää edes hieman paremmin suojattuna. 
 Salasana on pilkottu kahtia stringsissä, koska salasanassa muutettu "-" ei ole enää tulostuskelpoinen. Syytä tähän en tiedä.  
 
 <img width="629" height="168" alt="kuva" src="https://github.com/user-attachments/assets/8fcfffca-20ad-42c1-ac64-3fadae15fd7c" />  
@@ -73,7 +73,7 @@ Stringseillä paljastui seuraava "salasana", joka se ei kuitenkaan ollut kokeilt
 
 Hieman alempana kuitenkin lukee "This file is packed with the UPX executable packer". Tämä herätti mielenkiintoni joten lähdin tutkimaan sitä tarkemmin. 
 Nopealla googlauksella selvisi, että UPX on avoimen lähdekoodin paketti, joka kompressoi tiedostoja jopa 50-70% pienemmäksi. 
-Kokeilin kääntää tiedoston takaisin originaaliin muotoon komennolla "upx -d packd.exe". (Ensin oli asennettava paketti itselleni komennolla "sudo apt install upx-ucl".  
+Kokeilin kääntää tiedoston takaisin originaaliin muotoon komennolla "upx -d packd.exe". (Ensin oli asennettava paketti itselleni komennolla "sudo apt install upx-ucl").  
 
 <img width="791" height="213" alt="kuva" src="https://github.com/user-attachments/assets/899a73bc-ba1d-4408-84a0-84323ebdc224" />  
 
